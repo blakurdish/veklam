@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veklam — Elevating Fashion Technology</title>
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --primary-gold: #C8956C;
+            --dark-bg: #0F0F0F;
+            --light-bg: #F7F4EF;
+            --text-main: #1A1A1A;
+            --text-muted: #6C757D;
+            --glass: rgba(255, 255, 255, 0.8);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        .playfair { font-family: 'Playfair Display', serif; }
+
+        /* --- Hero Section --- */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        .btn-veklam {
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-veklam-primary {
+            background-color: var(--primary-gold);
+            color: white;
+            border: none;
+        }
+
+        .btn-veklam-primary:hover {
+            background-color: #b07d56;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* --- Navigation --- */
+        .navbar-veklam {
+            padding: 20px 0;
+            transition: all 0.3s ease;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-veklam.scrolled {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 2rem;
+            color: white !important;
+        }
+
+        .navbar-veklam.scrolled .navbar-brand {
+            color: var(--text-main) !important;
+        }
+
+        /* --- Sections --- */
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* --- Login Page --- */
+        #page-login {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: var(--light-bg);
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* --- Animations --- */
+        .fade-up {
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-veklam" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="showPage('hero')">VEKLAM</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-white" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#" onclick="showPage('login')">Login</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-veklam btn-veklam-primary" href="#" onclick="showPage('login')">Get Started</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="page active">
+        <div class="hero-content fade-up">
+            <h1 class="hero-title playfair">Redefining Fashion <br> Ecosystems</h1>
+            <p class="hero-subtitle">The all-in-one platform for designers, manufacturers, and fashion enthusiasts to create, collaborate, and scale.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <button class="btn btn-veklam btn-veklam-primary" onclick="showPage('login')">Explore Platform</button>
+                <button class="btn btn-veklam btn-outline-light" onclick="scrollToFeatures()">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Page -->
+    <section id="page-login" class="page section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-5">
+                    <div class="login-card fade-up">
+                        <div class="text-center mb-4">
+                            <h2 class="playfair fw-bold">Welcome Back</h2>
+                            <p class="text-muted">Sign in to access your fashion dashboard</p>
+                        </div>
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <label class="form-label">Email Address</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-0"><i class="bi bi-envelope"></i></span>
+                                    <input type="email" class="form-control bg-light border-0" placeholder="name@example.com" required>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label">Password</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-0"><i class="bi bi-lock"></i></span>
+                                    <input type="password" class="form-control bg-light border-0" placeholder="••••••••" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-veklam btn-veklam-primary w-100 mb-3">Sign In</button>
+                            <div class="text-center">
+                                <span class="text-muted small">Don't have an account? <a href="#" class="text-dark fw-bold">Request Access</a></span>
+                            </div>
+                        </form>
+                        
+                        <div class="mt-4 pt-4 border-top">
+                            <p class="text-center text-muted small mb-3">Or continue with your role</p>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <button class="btn btn-outline-secondary w-100 py-2 small" onclick="demoLogin('customer')">Customer</button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-outline-secondary w-100 py-2 small" onclick="demoLogin('designer')">Designer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Content (Hidden until login) -->
+    <section id="page-app" class="page">
+        <!-- This will contain the dashboard content from the original file, but improved -->
+        <div id="app-container"></div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    
+    <script src="js/firebase-config.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
