@@ -144,6 +144,24 @@
             border: 1px solid rgba(0,0,0,0.05);
         }
 
+        .product-card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .product-card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
         /* --- Animations --- */
         .fade-up {
             animation: fadeUp 0.8s ease forwards;
